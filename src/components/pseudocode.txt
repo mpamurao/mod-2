@@ -1,0 +1,32 @@
+App.js
+
+ROUTER -> ROUTES:
+Homepage
+About Page
+/:EmploymentInfo
+/:Data?
+
+#Levels - number of people
+#Rate - percent that apply compared to total number of people
+
+https://download.bls.gov/pub/time.series/
+
+EMPLOYMENT&UNEMPLOYMENT - CONDITIONS
+#National Employment, Hours, and Earnings
+#State and Area Employment, Hours, and Earnings
+#Business Employment Dynamics
+#Local Area Unemployment Statistics
+#Job Openings and Labor Turnover Survey
+
+INFLATION&PRICES / SPENDING&TIME USE - LIVING CONDITIONS
+#Consumer Price Index - All Urban Consumers
+#American Time Use Survey
+#Consumer Expenditure Survey
+
+PAY&BENEFITS
+#National Benefits (NAICS and SOC)
+#Employment Cost Index (NAICS and SOC)
+#Employer Costs for Employee Compensation (NAICS and SOC)
+
+OCCUPATIONAL REQUIREMENTS
+#Occupational Requirements Survey
