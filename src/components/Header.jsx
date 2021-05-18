@@ -1,5 +1,5 @@
 import React from 'react';
-import {Typography, AppBar, Toolbar, Button} from '@material-ui/core';
+import {Typography, AppBar, Toolbar, Grid, Box, Button} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import headerStyles from './styles/headerStyles';
 
@@ -21,15 +21,38 @@ function Header(props) {
 
                 {/* make navBar with buttons */}
                 <Toolbar className={classes.toolbar}>
-                    <Button>
-                        <Link to="/home" className={classes.toolButton}> Home </Link>
-                    </Button>
-                    <Button>
-                        <Link to="/about" className={classes.toolButton}> About </Link>
-                    </Button>
-                    <Button>
-                        <Link to="/about" className={classes.toolButton}> Menu </Link>
-                    </Button>
+                    <Grid container justify="space-between">
+                        {/* place gridItems in boxes to space-between home/about 
+                        and menu */}
+                        <Box>
+                            <Grid container justify="space-between">
+                                <Grid item>
+                                    <Button>
+                                        <Link to="/home" className={classes.toolButton}> 
+                                            Home 
+                                        </Link>
+                                    </Button>
+                                </Grid>
+                                <Grid item>
+                                    <Button>
+                                        <Link to="/about" className={classes.toolButton}> 
+                                            About 
+                                        </Link>
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </Box>
+                        <Box>
+                            <Grid item justify="right">
+                                <Button>
+                                    <Link to="/about" className={classes.toolButton} 
+                                    style={{textAlign:"right"}}> 
+                                        Menu 
+                                    </Link>
+                                </Button>
+                            </Grid>
+                        </Box>
+                    </Grid>
                 </Toolbar>
             </AppBar>
         

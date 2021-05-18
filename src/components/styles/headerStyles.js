@@ -16,7 +16,7 @@ const headerStyles = makeStyles(() => ({
     },
     toolbar:{
         backgroundColor:"blue",
-        textAlign:"center",
+        padding:"0rem 3rem 0rem 3rem",
     },
     toolButton:{
         color:"white",
