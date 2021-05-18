@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import config from '../config';
-import data from './dummydata';
+import data from '../data/dummydata';
 
 // API Walkthrough: https://hashrocket.com/blog/posts/extracting-programmer-employment-data-from-bls
 // BLS Wrapper: https://github.com/reaperkrew/bls

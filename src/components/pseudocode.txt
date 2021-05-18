@@ -1,10 +1,20 @@
-App.js
+#NOTES
 
 ROUTER -> ROUTES:
 Homepage
 About Page
 /:EmploymentInfo
 /:Data?
+
+
+#REGEX SEARCH THROUGH DATA
+(.*)\t(.*)\t(.*)\t(.*)\t(.*)\t(.*)\t(.*)
+->everything up to tab, and repeat
+->replace with $1
+    ->$1 is the everything up to first tab
+    ->$4 is everything after 3rd tab and before 4th tab
+
+
 
 #Levels - number of people
 #Rate - percent that apply compared to total number of people
