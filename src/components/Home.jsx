@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Container, Button, InputLabel, MenuItem, FormHelperText, 
+import {Container, InputLabel, MenuItem, FormHelperText, 
         FormControl, Select} from '@material-ui/core';
 import homeStyles from './styles/homeStyles';
 import { withStyles } from '@material-ui/core/styles';
@@ -32,7 +32,7 @@ class Home extends Component {
         return (
             <div>
                 <Container className={classes.homeTitle}>
-                    FIND STATISTICAL DATA
+                    SEARCH STATISTICAL EMPLOYMENT AND LIVING DATA
                 </Container>
 
                 {/* container to wrap form options */}
@@ -45,12 +45,10 @@ class Home extends Component {
                         {/* name = defines name for drop down menu */}
                         <Select value={this.state.category} 
                         onChange={this.handleChangeCategory} 
-                        inputProps={{name:"General Categories", id: "generalCategory"}}>
-                            <MenuItem value="">
-                                None
-                            </MenuItem>
+                        inputProps={{name:"generalCategory", id: "generalCategory"}}>
                             {/* MenuItem = option */}
-                            <MenuItem value="National Employment, Hours, and Earnings">
+                            <MenuItem value="National Employment, Hours, and Earnings" 
+                            key="National Employment, Hours, and Earnings">
                                 National Employment, Hours, and Earnings
                             </MenuItem>
                         </Select>
@@ -58,13 +56,16 @@ class Home extends Component {
                     </FormControl>
                 </Container>
 
-                {/* if option is National Employment, show more options to select  from */}
-                {!(this.state.category === "National Employment, Hours, and Earnings")
-                    ? null
-                    // show seasonal and supersector/industry options
-                    : <NEmployHoursEarns classes={classes} />
-            
-                }
+                <Container>
+                    {/* if option is National Employment, show more options to select  from */}
+                    {!(this.state.category === "National Employment, Hours, and Earnings")
+                        ? <div></div>
+                        // show seasonal and supersector/industry options
+                        : <NEmployHoursEarns classes={classes} />
+                
+                    }
+
+                </Container>
                   
             </div>
         );

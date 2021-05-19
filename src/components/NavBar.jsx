@@ -12,7 +12,7 @@ function NavBar(props) {
                         and menu */}
                         {/* Box is like a div tag */}
                         <Box>
-                            <Grid container justify="space-between">
+                            <Grid container>
                                 <Grid item>
                                     <Button>
                                         <Link to="/home" className={props.classes.toolButton}> 
@@ -30,7 +30,7 @@ function NavBar(props) {
                             </Grid>
                         </Box>
                         <Box>
-                            <Grid item justify="right">
+                            <Grid item>
                                 <Button>
                                     <Link to="/about" className={props.classes.toolButton} 
                                     style={{textAlign:"right"}}> 

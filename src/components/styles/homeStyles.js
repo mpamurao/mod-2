@@ -13,7 +13,12 @@ const homeStyles = {
     formControl:{
         minWidth:"130px",
         justifyContent:"center",
+        margin:"1rem 1rem 1rem 1rem",
     },
+    error:{
+        color:"red",
+        padding:"0.8rem 1rem 1rem 1rem",
+    }
 }
 
 
