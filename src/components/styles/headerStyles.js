@@ -2,6 +2,7 @@ import {makeStyles} from "@material-ui/core/styles";
 
 // hook called headerStyles that is a function that has 
 // a callback function that returns an object with CSS
+// hook API only works with function components
 
 const headerStyles = makeStyles(() => ({
     appBar:{

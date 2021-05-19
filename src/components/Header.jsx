@@ -1,5 +1,5 @@
 import React from 'react';
-import {Typography, AppBar, Toolbar, Grid, Box, Button} from '@material-ui/core';
+import {Typography, AppBar, Toolbar, Box, Grid, Button} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import headerStyles from './styles/headerStyles';
 
@@ -24,6 +24,7 @@ function Header(props) {
                     <Grid container justify="space-between">
                         {/* place gridItems in boxes to space-between home/about 
                         and menu */}
+                        {/* Box is like a div tag */}
                         <Box>
                             <Grid container justify="space-between">
                                 <Grid item>
