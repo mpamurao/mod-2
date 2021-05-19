@@ -20,12 +20,12 @@ class Home extends Component {
     // set state when main category is selected
     handleChangeCategory = (event) => {
         event.preventDefault();
-        console.log(event)
+        // console.log(event)
         this.setState({category:event.target.value});
     }
 
     render() {
-        console.log(this.state.category)
+        // console.log(this.state.category)
         // object destructure this.props.classes (which has value of homeStyles)
         const {classes} = this.props;
 
@@ -61,7 +61,7 @@ class Home extends Component {
                     {!(this.state.category === "National Employment, Hours, and Earnings")
                         ? <div></div>
                         // show seasonal and supersector/industry options
-                        : <NEmployHoursEarns classes={classes} />
+                        : <NEmployHoursEarns classes={classes} category={this.state.category}/>
                 
                     }
 

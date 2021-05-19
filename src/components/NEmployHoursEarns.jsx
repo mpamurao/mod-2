@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Button, InputLabel, MenuItem, FormHelperText, 
     FormControl, Select, Container} from '@material-ui/core';
 import nEmployHoursEarnsData from '../data/nEmployHoursEarnsData';
+import {useHistory} from 'react-router';
 
 
 function NEmployHoursEarns(props) {
@@ -14,7 +15,7 @@ function NEmployHoursEarns(props) {
     const [supersector, setSupersector] = useState("");
     const [dataType, setDataType] = useState("");
     const [complete, setComplete] = useState("incomplete");
-    const [seriesID, setSeriesID] = useState("");
+    const history = useHistory();
 
     // submit form and concatenate seriesID
     const handleClick = (event) => {
@@ -31,13 +32,48 @@ function NEmployHoursEarns(props) {
 
     // after form is completed, determine seriesID for fetching data
     const createSeriesID = () => {
+        // generate all the codes from data list
+        const seriesCode = "CE";
         const seasonalCode = nEmployHoursEarnsData.seasonal[seasonal];
         const supersectorCode = nEmployHoursEarnsData.supersector[supersector];
         const industryCodes = nEmployHoursEarnsData.industry[supersectorCode];
         const dataTypeCode = nEmployHoursEarnsData.dataType[dataType];
-        const seriesCode = "CE";
 
-        console.log(seasonalCode, supersectorCode, dataTypeCode, industryCodes)
+        // console.log(seasonalCode, supersectorCode, dataTypeCode, industryCodes);
+
+        // concatenate codes into a seriesID and add to array
+        const seriesIDs = industryCodes.map(industryCode => {
+                return seriesCode+seasonalCode+industryCode+dataTypeCode
+            })
+        // max # of IDs allowed to call at once is 50
+        // if seriesIDs.length > 49, split the array into 2 arrays, etc
+        // create object with key values as an array of 50 index max
+        let seriesIDsObject = {}
+        seriesIDsObject = {
+            // slice array from [index1,index2)
+            1: {seriesid: seriesIDs.slice(0,50)},
+            2: {seriesid: seriesIDs.slice(50,100)},
+            3: {seriesid: seriesIDs.slice(100,150)},
+            4: {seriesid: seriesIDs.slice(150,200)},
+            5: {seriesid: seriesIDs.slice(200,250)},
+        }
+        
+        
+        // console.log(seriesIDsObject);
+        
+        let category = props.category
+        // console.log(category);
+        
+        let pathString = String(`${category}/${seasonal}&${supersector}/${dataType}`);
+        // regex to replace spaces and commas with a dash
+        pathString = pathString.replace(/(,\s)/g, '-').replace(/\s+/g, '-');
+        
+        // console.log(pathString);
+        // push url and pass in the seriesIDs props to ApiCall.jsx
+        history.push({
+            pathname:pathString,
+            state:seriesIDsObject,
+        })
     }
 
     return (
