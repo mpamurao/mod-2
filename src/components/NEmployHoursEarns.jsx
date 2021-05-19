@@ -23,14 +23,28 @@ function NEmployHoursEarns(props) {
             setComplete(false);
             return;
         }
-        console.log(seasonal, supersector, dataType)
+        // console.log(seasonal, supersector, dataType)
 
         setComplete(true);
+        createSeriesID();
     }
+
+    // after form is completed, determine seriesID for fetching data
+    const createSeriesID = () => {
+        const seasonalCode = nEmployHoursEarnsData.seasonal[seasonal];
+        const supersectorCode = nEmployHoursEarnsData.supersector[supersector];
+        const industryCodes = nEmployHoursEarnsData.industry[supersectorCode];
+        const dataTypeCode = nEmployHoursEarnsData.dataType[dataType];
+        const seriesCode = "CE";
+
+        console.log(seasonalCode, supersectorCode, dataTypeCode, industryCodes)
+    }
+
     return (
         <div>
             {/* seasonal options */}
-            <FormControl className={props.classes.formControl} style={{width:"12rem"}}>
+            <FormControl className={props.classes.formControl} style={{width:"12rem"}}
+            error={(!complete && !seasonal)}>
                 <InputLabel htmlFor="seasonal">Seasonal Adjustment</InputLabel>
                 <Select value={seasonal} 
                 onChange={(event) => {setSeasonal(event.target.value)}} 
@@ -46,7 +60,8 @@ function NEmployHoursEarns(props) {
             </FormControl>
 
             {/* supersector/industry options */}
-            <FormControl className={props.classes.formControl}>
+            <FormControl className={props.classes.formControl} 
+                error={(!complete && !supersector)}>
                 <InputLabel htmlFor="supersector">Industry</InputLabel>
                 <Select value={supersector} 
                 onChange={(event) => {setSupersector(event.target.value)}}
@@ -60,7 +75,8 @@ function NEmployHoursEarns(props) {
             </FormControl>
 
             {/* dataType options */}
-            <FormControl className={props.classes.formControl}>
+            <FormControl className={props.classes.formControl}
+            error={(!complete && !dataType)}>
                 <InputLabel htmlFor="dataType">Data Type</InputLabel>
                 <Select value={dataType} 
                 onChange={(event) => {setDataType(event.target.value)}}
@@ -85,10 +101,10 @@ function NEmployHoursEarns(props) {
             {/* if there's an incomplete form */}
             {(!complete && (!seasonal || !supersector || !dataType))
                 ? <Container className={props.classes.error}>
-                    Please complete missing values: 
-                    {!seasonal ? " Seasonal Adjustment " : null}
-                    {!supersector ? "Supersector " : null}
-                    {!dataType ? "Data Type" : null}
+                    Please complete missing values: <br></br> 
+                    {!seasonal ? <li className={props.classes.li}>Seasonal Adjustment</li>: null}
+                    {!supersector ? <li className={props.classes.li}>Industry</li> : null}
+                    {!dataType ? <li className={props.classes.li}>Data Type</li> : null}
                     </Container>
                 : null
             }

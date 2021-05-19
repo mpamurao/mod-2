@@ -18,7 +18,10 @@ const homeStyles = {
     error:{
         color:"red",
         padding:"0.8rem 1rem 1rem 1rem",
-    }
+    },
+    li:{
+        marginLeft:"1rem",
+    },
 }
 
 
