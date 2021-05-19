@@ -25,7 +25,7 @@ class Home extends Component {
                     {/* id = associate list to label */}
                     <label htmlFor="generalCategory">
                         <Box className={classes.homeTitle}>
-                            Search data: 
+                            Search data: Hello!
                         </Box>
                     </label>
                     <select name="generalCategory" id="generalCategory">
