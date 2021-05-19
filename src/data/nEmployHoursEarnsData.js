@@ -6,7 +6,7 @@
 // 4-11		   08000000	       Supersector and Industry Codes
 // 12-13       03              Data Type Code
 
-const nEmployHoursEarns = {
+const nEmployHoursEarnsData = {
     seasonal: {
         'Seasonally Adjusted': 'S',
         'Seasonally Not Adjusted': 'U'
@@ -1008,3 +1008,5 @@ const nEmployHoursEarns = {
         'CPI-W 1982-84':'99',
     }
 }
+
+export default nEmployHoursEarnsData;
