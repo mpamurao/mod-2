@@ -99,7 +99,6 @@ function ChartDisplay(props) {
                                 },
                             },
                         },
-                     
                     }}
                 />
             </Paper>
