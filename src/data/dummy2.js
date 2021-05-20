@@ -1,14 +1,69 @@
-"data_type_text": "data_type_code",
-"All Employees, In Thousands": "01",
-"Average Weekly Hours of All Employees": "02",
-"Average Hourly Earnings of All Employees, In Dollars": "03",
-"Production or Nonsupervisory Employees, In Thousands": "06",
-"Average Weekly Hours of Production Employees": "07",
-"Average Hourly Earnings of Production Employees, In Dollars": "08",
-"Average Weekly Earnings of All Employees, In Dollars": "11",
-"Diffusion Indexes, 1-month span, seasonally adjusted, total nonfarm": "21",
-"Diffusion Indexes, 3-month span, seasonally adjusted, total nonfarm": "22",
-"Diffusion Indexes, 6-month span, seasonally adjusted, total nonfarm": "23",
-"Diffusion Indexes, 12-month span, seasonally adjusted, total nonfarm": "24",
-"All Employees, 3-month average change, In Thousands, seasonally adjusted": "26",
-"Average Weekly Earnings of Production Employees, In Dollars": "30",
+"00": {
+
+},
+"11": {
+
+},
+"13": {
+
+},
+"15": {
+
+},
+"17": {
+
+},
+"19": {
+
+},
+"21": {
+
+},
+"23": {
+
+},
+"25": {
+
+},
+"27": {
+
+},
+"29": {
+
+},
+"31": {
+
+},
+"33": {
+
+},
+"35": {
+
+},
+"37": {
+
+},
+"39": {
+
+},
+"41": {
+
+},
+"43": {
+
+},
+"45": {
+
+},
+"47": {
+
+},
+"49": {
+
+},
+"51": {
+
+},
+"53": {
+
+},
