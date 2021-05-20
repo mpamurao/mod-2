@@ -44,12 +44,12 @@ function ChartDisplay(props) {
                         datasets:[
                             {
                                 // y-value legend
-                                label:data.replace(/-/g," "),
+                                label: data.replace(/-/g," "),
                                 // y-values
                                 data: chartDataY,
                                 // inner marker colors
                                 backgroundColor: [
-                                    "white", "purple","blue"
+                                    "white", "magenta","blue"
                                 ],
                                 // line and outer marker colors
                                 borderColor: [
@@ -57,6 +57,7 @@ function ChartDisplay(props) {
                                 ],
                                 // borderWidth = graph's line thickness
                                 borderWidth: 3,
+                                pointRadius: 5,  
                             },
                             // to create another data set, just add another object here
                         ],
@@ -67,17 +68,17 @@ function ChartDisplay(props) {
                     options={{
                         maintainAspectRatio:false,
                         layout:{
-                            padding:25,
+                            padding:30,
                         },
                         plugins:{
                             title:{
                               display: true,
                               text: `${category.replace(/-/g, " ")} || ${subcategories.replace(/[-]/g, " ").replace(/&/g," || ")}`,
                               font:{
-                                  size:20,
+                                  size: 20,
                               },
                               padding: {top: 0, left: 0, right: 0, bottom: 10},
-                            },                            
+                            },                      
                         },
                         scales:{
                             x:{
@@ -88,14 +89,14 @@ function ChartDisplay(props) {
                                         return index % 3 === 0 ? this.getLabelForValue(val) : '';
                                     },
                                     font:{
-                                        size:14,
+                                        size: 14,
                                     },
                                 },
                             },
                             y:{
                                 ticks:{
                                     font:{
-                                        size:14,
+                                        size: 14,
                                     },
                                 },
                             },
