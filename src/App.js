@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import About from './components/About';
 import ApiCall from './components/ApiCall';
+import Footer from './components/Footer';
 import {CssBaseline} from '@material-ui/core';
 
 
@@ -19,8 +20,8 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/:category/:subcategories/:data" component={ApiCall} />
         </Switch>
-      </Router>
-    
+        <Footer />
+      </Router>  
     </div>
   );
 }

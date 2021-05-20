@@ -1,9 +1,12 @@
 const apiCallStyles = {
-    seriesID: {
+    seriesID:{
         fontWeight:"bold",
-        fontSize:"1.2rem",
-        margin:"1rem 0rem 0rem 0rem",
+        fontSize:"1.1rem",
+        padding:"1.5rem 0rem 0rem 0rem",
     },
+    chartContainer:{
+        padding:"1rem 1rem 4rem 1rem",
+    }
 }
 
 export default apiCallStyles

@@ -42,17 +42,17 @@ class ApiCall extends Component {
 
         return (
             <div>
-                <Container>
+                <Container>   
                     {/* if data hasn't been added to state yet, this is null */}
                     {!this.state.data
                         ? <div></div>
                         : <Box className={classes.seriesID}>Series ID: {this.state.data.Results.series[0].seriesID}</Box>
-                    }
-                
-                    <Box padding={3}>
+                    }   
+                    <Box className={classes.chartContainer}>
                         {!this.state.data
                             ? <div></div>
-                            : <ChartDisplay fetchData={this.state.data} category={category} subcategories={subcategories} data={data}/>
+                            : <ChartDisplay fetchData={this.state.data} category={category} 
+                                subcategories={subcategories} data={data}/>
                         }
                     </Box>
                 </Container>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Paper} from '@material-ui/core';
+import {Paper, makeStyles} from '@material-ui/core';
 import {Line} from 'react-chartjs-2';
 
 // Chart library: https://www.chartjs.org/docs/latest/
@@ -24,7 +24,9 @@ const addChartData = (data) => {
     // console.log(chartDataX, chartDataY)
 }
 
+
 function ChartDisplay(props) {
+
     // declare variables for props
     const {fetchData, category, subcategories, data} = props;
    
@@ -66,7 +68,7 @@ function ChartDisplay(props) {
                     options={{
                         maintainAspectRatio:false,
                         layout:{
-                            padding:30,
+                            padding:25,
                         },
                         plugins:{
                             title:{

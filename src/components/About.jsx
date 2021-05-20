@@ -6,7 +6,7 @@ import nEmploy from "./images/nEmployHoursEarns-image.png";
 function About(props) {
     const classes = aboutStyles();
     return (
-        <div>
+        <div className={classes.aboutContainer}>
             <Container className={classes.aboutTitle}>
                 ABOUT
             </Container>

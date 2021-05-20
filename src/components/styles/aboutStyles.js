@@ -1,6 +1,9 @@
 import {makeStyles} from '@material-ui/core/styles';
 
 const aboutStyles = makeStyles(() => ({
+    aboutContainer:{
+        paddingBottom:"2rem",
+    },
     aboutTitle:{
         borderBottom:"3px solid",
         padding:"1.2rem 1rem 0.5rem 1rem",
