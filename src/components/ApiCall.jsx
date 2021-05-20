@@ -59,6 +59,10 @@ class ApiCall extends Component {
             </div>
         );
     }
+
+    componentWillUnmount = () => {
+        this.setState({data:""});
+    }
 }
 
 export default withStyles(apiCallStyles)(ApiCall);
