@@ -1,10 +1,10 @@
 import {makeStyles} from '@material-ui/core/styles';
 
-const aboutStyles = makeStyles(() => ({
-    aboutContainer:{
+const infoStyles = makeStyles(() => ({
+    infoContainer:{
         paddingBottom:"2rem",
     },
-    aboutTitle:{
+    infoTitle:{
         borderBottom:"3px solid",
         padding:"1.2rem 1rem 0.5rem 1rem",
         // textAlign:"left",
@@ -24,13 +24,20 @@ const aboutStyles = makeStyles(() => ({
     },
     imageContainer:{
         maxWidth:800,
-        margin:"1rem",
+        margin:"2rem",
+        padding:"0.5rem",
     },
     image: {
         padding:"1rem",
         // marginTop:'30'
         width:"100%",
       },
+    bottom:{
+        paddingBottom:"1rem",
+    },
+    last:{
+        paddingBottom:"3rem",
+    },
 }));
 
-export default aboutStyles;
+export default infoStyles;

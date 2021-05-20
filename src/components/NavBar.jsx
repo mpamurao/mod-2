@@ -2,6 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Toolbar, Box, Grid, Button} from '@material-ui/core';
 
+const NavBarArr = ["Home", "About", "BLS-API"]
+
 function NavBar(props) {
     return (
         <div>
@@ -13,20 +15,17 @@ function NavBar(props) {
                     {/* Box is like a div tag */}
                     <Box>
                         <Grid container>
-                            <Grid item>
-                                <Button>
-                                    <Link to="/" className={props.classes.toolButton}> 
-                                        Home 
-                                    </Link>
-                                </Button>
-                            </Grid>
-                            <Grid item>
-                                <Button>
-                                    <Link to="/about" className={props.classes.toolButton}> 
-                                        About 
-                                    </Link>
-                                </Button>
-                            </Grid>
+                            {NavBarArr.map(index => {
+                                return (
+                                    <Grid item>
+                                        <Button>
+                                            <Link to={`/${index}`} className={props.classes.toolButton}> 
+                                                {index} 
+                                            </Link>
+                                        </Button>
+                                    </Grid>
+                                )
+                            })}
                         </Grid>
                     </Box>
                     <Box>

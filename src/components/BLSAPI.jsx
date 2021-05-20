@@ -1,13 +1,14 @@
 import React from 'react';
-import {Container, Box, Link, Card, CardMedia} from '@material-ui/core';
+import {Container, Box, Link, Card} from '@material-ui/core';
 import infoStyles from './styles/infoStyles';
+import nEmploy from "./images/nEmployHoursEarns-image.png";
 
-function About(props) {
+function BLSAPI() {
     const classes = infoStyles();
     return (
         <div className={classes.infoContainer}>
             <Container className={classes.infoTitle}>
-                About
+                U.S. Bureau of Labor Statistics API
             </Container>
             <Container className={classes.content}>
                 <Container>
@@ -53,7 +54,23 @@ function About(props) {
                     <Box className={classes.subtitle}>
                         Series ID Tutorial
                     </Box>
-                    
+                    <Box>
+                        The <Link href="https://www.bls.gov/help/hlpforma.htm#CE" target="_blank"> 
+                                Series ID Formats Tutorial
+                            </Link>
+                        &nbsp;can help guide through how to determine a series ID without using the 
+                        BLS Data Finder. For example, the <i>National Employment, Hours, and Earnings</i> 
+                        &nbsp;has an endpoint that can be reached by using the 13-character long series ID 
+                        that starts with the prefix 'CE'.
+                    </Box>
+
+                    <Card className={classes.imageContainer}>
+                        <img className={classes.image}
+                            src={nEmploy}
+                            alt="National Employment, Hours, and Earnings seriesID format"
+                        />
+                    </Card>
+
                     <Box className={classes.last}>
                         There are some endpoints that are unsuccessful even if the series ID is
                         correct. Before trying to generate a series ID for a data set,
@@ -66,4 +83,4 @@ function About(props) {
     );
 }
 
-export default About;
+export default BLSAPI;
