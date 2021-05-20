@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import config from '../config';
 import data from '../data/dummydata';
-import {Container, Typography, Box, Grid} from '@material-ui/core';
+import {Container, Typography, Box, Grid, withStyles} from '@material-ui/core';
+import apiCallStyles from './styles/apiCallStyles';
 
 class ApiCall extends Component {
     constructor() {
@@ -35,23 +36,20 @@ class ApiCall extends Component {
     }
     
     render() {
-        console.log("render")
-        console.log(this.state.data.Results)
+        const {classes} = this.props;
+
         return (
             <div>
-                Does this work?
-                
                 <Container>
-                    {/* {this.state.data.series.data.map(index => {
-                        return console.log(index.year)
-                    })} */}
-                    {/* {this.state.data.Results.series[0].data.map(index => {
-                        <Box> {index.periodName} , {index.year} </Box>
-                    })} */}
+                    Does this work?
+                    {!this.state.data
+                        ? null
+                        : <Box className={classes.seriesID}>{this.state.data.Results.series[0].seriesID}</Box>
+                    }
                 </Container>
             </div>
         );
     }
 }
 
-export default ApiCall;
+export default withStyles(apiCallStyles)(ApiCall);

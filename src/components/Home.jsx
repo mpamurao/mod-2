@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {Container, InputLabel, MenuItem, FormHelperText, 
-        FormControl, Select} from '@material-ui/core';
+        FormControl, Select, withStyles} from '@material-ui/core';
 import homeStyles from './styles/homeStyles';
-import { withStyles } from '@material-ui/core/styles';
 import NEmployHoursEarns from './NEmployHoursEarns';
 
 // API Walkthrough: https://hashrocket.com/blog/posts/extracting-programmer-employment-data-from-bls
