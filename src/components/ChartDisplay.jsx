@@ -1,27 +1,27 @@
 import React from 'react';
-import {Paper, makeStyles} from '@material-ui/core';
-import {
-  ArgumentAxis,
-  ValueAxis,
-  Chart,
-  LineSeries,
-  Legend,
-  Title
-} from '@devexpress/dx-react-chart-material-ui';
+import {Paper} from '@material-ui/core';
+import {Line} from 'react-chartjs-2';
 
+// Chart library: https://www.chartjs.org/docs/latest/
 
-// create chartData array
-let chartData = [];
+// create chartData arrays
+let chartDataX = [];
+let chartDataY = [];
 
 // add data to chartData
 const addChartData = (data) => {
-    console.log(data.Results.series[0].data)
-    chartData = data.Results.series[0].data.map(index => {
-     return {argument: `${index.periodName} ${index.year}`, value: `${index.value}`}
-    })
+    chartDataX = data.Results.series[0].data.map(index => {
+     return `${index.periodName} ${index.year}`
+    });
+
+    chartDataY = data.Results.series[0].data.map(index => {
+        return `${index.value}`
+    });
+    
     // reverse data so oldest date is listed first
-    chartData = chartData.reverse();
-    console.log(chartData)
+    chartDataX = chartDataX.reverse();
+    chartDataY = chartDataY.reverse();
+    // console.log(chartDataX, chartDataY)
 }
 
 function ChartDisplay(props) {
@@ -31,71 +31,77 @@ function ChartDisplay(props) {
     // call the function and pass in fetchData
     addChartData(fetchData);
 
-    const customLabelX = props => {
-        // props = individual text label shown as 
-        // {text:"April 2021", x: x-value, y: y-value, etc}
-        const {text} = props;
-        // console.log("x-axis ", text);
-
-        // list each x-value that indicates every quarter
-        const monthsArray = ["January", "April", "July", "October"]
-
-        // split text via space and call first index in [April, 2021]
-        if (monthsArray.includes(text.split(" ")[0])){
-            // include spread operator on props to pass in
-            // individual key and value not just the overall object
-            return <ArgumentAxis.Label {...props} />
-        }
-
-        // if the month isn't in the array, return null 
-        // so the x-value doesn't display on chart
-        return null;   
-    }
-
-    // show tick mark on every 3 data points
-    let tickCounterX = 0;
-    const customTickX = props => {
-        // console.log("tickX ", props);
-        tickCounterX += 1;
-        if (!(tickCounterX % 3)){
-            return <ArgumentAxis.Tick {...props} />
-        }
-        return null;
-    }
-
-    const customLabelY = props => {
-        // console.log("y-axis ", props);
-        return null;
-    }
-
-    let tickCounterY = 0;
-    const customTickY = props => {
-        console.log("tickY ", props);
-        // tickCounterY += 1;
-        // if (!(tickCounterY % 100)){
-        //     return <ValueAxis.Tick {...props} />
-        // }
-        return null;
-    }
-
     return (
         <div>
             {/* {console.log(fetchData, category, subcategories, data)} */}
-            <Paper>
-                <Chart data={chartData}>
-                    {/* x-axis */}
-                    <ArgumentAxis tickSize={10} labelComponent={customLabelX} tickComponent={customTickX} />
-                    {/* y-axis */}
-                    <ValueAxis tickSize={10} labelComponent={customLabelY} tickComponent={customTickY} />
-
-                    {/* get arguments and values from data array of objects */}
+            {/* Paper = gives white paper-like background */}
+            <Paper aria-label={data} role="chart">
+                <Line
+                    data={{
+                        // x-axis labels
+                        labels: chartDataX,
+                        datasets:[
+                            {
+                                // y-value legend
+                                label:data.replace(/-/g," "),
+                                // y-values
+                                data: chartDataY,
+                                // inner marker colors
+                                backgroundColor: [
+                                    "white", "purple","blue"
+                                ],
+                                // line and outer marker colors
+                                borderColor: [
+                                    "orange"
+                                ],
+                                // borderWidth = graph's line thickness
+                                borderWidth: 3,
+                            },
+                            // to create another data set, just add another object here
+                        ],
+                    }} 
                     
-                    
-                    <LineSeries name={data.replace(/-/g," ")} valueField="value" argumentField="argument" />
-                    
-                    <Legend position="bottom" />
-                    <Title text={category.replace(/-/g," ")} />
-                </Chart>
+                    // must state graph dimension
+                    height={550}
+                    options={{
+                        maintainAspectRatio:false,
+                        layout:{
+                            padding:30,
+                        },
+                        plugins:{
+                            title:{
+                              display: true,
+                              text: `${category.replace(/-/g, " ")} || ${subcategories.replace(/[-]/g, " ").replace(/&/g," || ")}`,
+                              font:{
+                                  size:20,
+                              },
+                              padding: {top: 0, left: 0, right: 0, bottom: 10},
+                            },                            
+                        },
+                        scales:{
+                            x:{
+                                // ticks = x-axis labels
+                                ticks:{
+                                    callback: function(val, index) {
+                                        // show label of every 3rd dataset
+                                        return index % 3 === 0 ? this.getLabelForValue(val) : '';
+                                    },
+                                    font:{
+                                        size:14,
+                                    },
+                                },
+                            },
+                            y:{
+                                ticks:{
+                                    font:{
+                                        size:14,
+                                    },
+                                },
+                            },
+                        },
+                     
+                    }}
+                />
             </Paper>
         </div>
     );
