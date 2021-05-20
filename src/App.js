@@ -1,5 +1,6 @@
 import './App.css';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+import {Container} from '@material-ui/core';
 import Header from './components/Header';
 import Home from './components/Home';
 import About from './components/About';
@@ -17,10 +18,24 @@ function App() {
       <Router>
         <Header />
         <Switch>
-          <Route exact path="/Home" component={Home} />
+          <Redirect exact from="/" to="/Home" />
+          <Route path="/Home" component={Home} />
           <Route path="/About" component={About} />
           <Route path="/BLS-API" component={BLSAPI} />
           <Route path="/:category/:subcategories/:data" component={ApiCall} />
+          <Route path="*" 
+            render={() => <Container 
+                            style={{
+                              fontSize:"2rem", 
+                              fontWeight:"bold",
+                              display:"flex",
+                              justifyContent:"center",
+                              marginTop:"3rem",
+                            }}
+                          >
+                            Page Not Found
+                          </Container>} 
+          />
         </Switch>
         <Footer />
       </Router>  

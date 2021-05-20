@@ -1,8 +1,10 @@
 import React from 'react';
-import {Container, Box, Link, Card, CardMedia} from '@material-ui/core';
+import {Container, Box, ListItem} from '@material-ui/core';
 import infoStyles from './styles/infoStyles';
 
-function About(props) {
+const technologies = ["JavaScript", "React", "Material-UI", "ChartJS", "U.S. Bureau of Labor Statistics API"];
+
+function About() {
     const classes = infoStyles();
     return (
         <div className={classes.infoContainer}>
@@ -12,53 +14,101 @@ function About(props) {
             <Container className={classes.content}>
                 <Container>
                     <Box className={classes.subtitle}>
-                        The API
+                        Website Content
                     </Box>
                     <Box className={classes.bottom}>
-                        The U.S. Bureau of Labor Statistics provides a free API to search its databases.
-                        General info about the BLS API can be found on the&nbsp;
-                        <Link href="https://www.bls.gov/developers/home.htm" target="_blank"> 
-                            BLS website
-                        </Link>. 
-                        If using the API, please remember to read the&nbsp;
-                        <Link href="https://www.bls.gov/developers/home.htm" target="_blank"> 
-                            Terms of Services
-                        </Link>.
+                        The BLS API Search application fetches data from the U.S. Bureau of Labor Statistics.
+                        Since the BLS website contains a lot of information in addition to survey data,
+                        it can be cumbersome to navigate through the site. As a user who may not normally
+                        visit the BLS site frequently, it can be overwhelming to find desired data.
                     </Box>
-                
                     <Box className={classes.bottom}>
-                        The API is free to use without a key at a daily limit of <b>25 queries
-                        and up to 10 years of data per query</b>.
-                        With an API key, the daily limit increases to <b>500 queries and up to 20 years of 
-                        data per query</b>.
-                    </Box>
-
-                    <Box className={classes.bottom}>
-                        Info to register for a key can be found on the&nbsp;
-                        <Link href="https://www.bls.gov/developers/api_faqs.htm" target="_blank"> 
-                            BLS FAQ page
-                        </Link>.
-                        Below is the URL format using a key to send a query for a single response:
-                        
-                        <Box margin={3}>
-                            <i>https://api.bls.gov/publicAPI/v2/timeseries/data/
-                                <b>seriesID</b>?registrationkey=<b>apiKey</b>
-                            </i>
-                        </Box>
-
-                        The <b>seriesID</b> corresponds to the BLS data set to be called. 
+                        To make it easier to retrieve data, this application is a simple search tool that
+                        generates charts. It is currently a Minimum Viable Product, and so
+                        it can only generate one data set at a time. However, it is possible to generate 
+                        multiple data sets to compare using the BLS API. If this app goes to full production,
+                        it would be capable of generating charts and tables for single or multiple data set(s) 
+                        at a time. It would also contain more survey data available to choose from and the
+                        flexibility to choose which years to gather data from.
                     </Box>
                 </Container>
                 <Container>
                     <Box className={classes.subtitle}>
-                        Series ID Tutorial
+                        Progamming Technologies
+                    </Box>
+                    <Box>
+                        This site utilized the following languages and tools:
+                        <ul>
+                            {technologies.map(item => {
+                                return <ListItem key={item} style={{listDecoration:"square"}}>{item}</ListItem>
+                            })}
+                        </ul>
+                    </Box>
+                </Container>
+                <Container>
+                    <Box className={classes.subtitle}>
+                        Walkthrough
                     </Box>
                     
-                    <Box className={classes.last}>
-                        There are some endpoints that are unsuccessful even if the series ID is
-                        correct. Before trying to generate a series ID for a data set,
-                        test the example series ID given in the Format Tutorial. If the example 
-                        series ID retrieves a bad response, then the endpoint is bad.
+                    <Box className={classes.bottom}>
+                        <Box className={classes.subtitle2}>
+                            Home
+                        </Box>
+                        <Box className={classes.bottom}>
+                            The Home page contains a form. The initial field selection refers to the
+                            main categories of survey data. The current category selection focuses on the
+                            subsets under Employment and Unemployment.
+                        </Box>
+                        <Box className={classes.bottom}>
+                            After selecting a category, additional fields appear. These fields include
+                            parameters required to complete in order to determine the series ID.
+                            By completing these fields and submitting, the series ID will generate and 
+                            correspond to the data set desired.
+                        </Box>
+
+                        <Box className={classes.subtitle2}>
+                            Chart
+                        </Box>
+                        <Box className={classes.bottom}>
+                            A query is sent to the BLS API to retrieve JSON data.
+                            From this data, a chart will be generated for each year provided in the response.
+                            Hovering over a data point will show its specific value.
+                        </Box>
+                        <Box className={classes.bottom}>
+                            To make a new search request, click on the Home button in the top left of the nav bar.
+                        </Box>
+
+                        <Box className={classes.subtitle2}>
+                            About
+                        </Box>
+                        <Box className={classes.bottom}>
+                            The About page is what you're currently on.
+                            This page includes info about the application.
+                        </Box>
+
+                        <Box className={classes.subtitle2}>
+                            BLS-API
+                        </Box>
+                        <Box className={classes.bottom}>
+                            The BLS-API page goes over the usage of the API. 
+                            It reviews how to create a URL request using an API key and 
+                            how to generate a series ID. It also contains links to the BLS website.
+                        </Box>
+
+                        <Box className={classes.subtitle2}>
+                            Menu
+                        </Box>
+                        <Box className={classes.bottom}>
+                            The Menu button currently does not have a functionality. In the future,
+                            it can provide a drop-down nav bar to the main categories.
+                        </Box>
+
+                        <Box className={classes.subtitle2}>
+                            Footer
+                        </Box>
+                        <Box className={classes.last}>
+                            The Footer contains the link to the BLS general website.
+                        </Box>
                     </Box>
                 </Container>
             </Container>

@@ -7,7 +7,6 @@ const infoStyles = makeStyles(() => ({
     infoTitle:{
         borderBottom:"3px solid",
         padding:"1.2rem 1rem 0.5rem 1rem",
-        // textAlign:"left",
         fontSize:"1.4rem",
         fontWeight:"900",
     },
@@ -29,7 +28,6 @@ const infoStyles = makeStyles(() => ({
     },
     image: {
         padding:"1rem",
-        // marginTop:'30'
         width:"100%",
       },
     bottom:{
@@ -38,6 +36,12 @@ const infoStyles = makeStyles(() => ({
     last:{
         paddingBottom:"3rem",
     },
+    subtitle2:{
+        fontWeight:"900",
+        fontSize:"1rem",
+        marginBottom:"1rem",
+        width:"5rem",
+    }
 }));
 
 export default infoStyles;

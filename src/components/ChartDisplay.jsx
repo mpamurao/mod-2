@@ -1,5 +1,5 @@
 import React from 'react';
-import {Paper, makeStyles} from '@material-ui/core';
+import {Paper} from '@material-ui/core';
 import {Line} from 'react-chartjs-2';
 
 // Chart library: https://www.chartjs.org/docs/latest/

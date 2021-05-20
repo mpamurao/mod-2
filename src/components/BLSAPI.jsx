@@ -41,10 +41,12 @@ function BLSAPI() {
                         </Link>.
                         Below is the URL format using a key to send a query for a single response:
                         
-                        <Box margin={3}>
-                            <i>https://api.bls.gov/publicAPI/v2/timeseries/data/
-                                <b>seriesID</b>?registrationkey=<b>apiKey</b>
-                            </i>
+                        <Box>
+                            <Card className={classes.imageContainer}>
+                                <i>https://api.bls.gov/publicAPI/v2/timeseries/data/
+                                    <b>seriesID</b>?registrationkey=<b>apiKey</b>
+                                </i>
+                            </Card>
                         </Box>
 
                         The <b>seriesID</b> corresponds to the BLS data set to be called. 
@@ -74,8 +76,24 @@ function BLSAPI() {
                     <Box className={classes.last}>
                         There are some endpoints that are unsuccessful even if the series ID is
                         correct. Before trying to generate a series ID for a data set,
-                        test the example series ID given in the Format Tutorial. If the example 
-                        series ID retrieves a bad response, then the endpoint is bad.
+                        test the example series ID given in the Format Tutorial through the browser. 
+                        For example:
+
+                        <Box>
+                            <Card className={classes.imageContainer}>
+                                <i>https://api.bls.gov/publicAPI/v2/timeseries/data/CEU0800000003</i>
+                            </Card>
+                            <p style={{margin:"2rem"}}>or like this:</p>
+                            <Card className={classes.imageContainer}>
+                                <i>https://https://api.bls.gov/publicAPI/v2/timeseries/data/OEUN000000011100011000001</i>
+                            </Card>
+                        </Box>
+
+                        If the example series ID retrieves a bad response, then the endpoint is bad.
+                        Try finding another set of data in a different category to use instead.
+                        <br></br>
+                        <br></br>
+                        <b>Happy Navigating!</b>
                     </Box>
                 </Container>
             </Container>

@@ -17,7 +17,7 @@ function NavBar(props) {
                         <Grid container>
                             {NavBarArr.map(index => {
                                 return (
-                                    <Grid item>
+                                    <Grid item key={index}>
                                         <Button>
                                             <Link to={`/${index}`} className={props.classes.toolButton}> 
                                                 {index} 
