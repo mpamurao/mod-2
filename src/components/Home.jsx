@@ -6,7 +6,6 @@ import { withStyles } from '@material-ui/core/styles';
 import NEmployHoursEarns from './NEmployHoursEarns';
 
 // API Walkthrough: https://hashrocket.com/blog/posts/extracting-programmer-employment-data-from-bls
-// BLS Wrapper: https://github.com/reaperkrew/bls
 
 class Home extends Component {
     constructor() {
