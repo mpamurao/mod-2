@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import config from '../config';
 import data from '../data/dummydata';
-import {Container, Typography, Box, Grid, withStyles} from '@material-ui/core';
+import {Container, Box, withStyles} from '@material-ui/core';
 import apiCallStyles from './styles/apiCallStyles';
+import ChartDisplay from './ChartDisplay';
 
 class ApiCall extends Component {
     constructor() {
@@ -16,8 +17,8 @@ class ApiCall extends Component {
     componentDidMount = async () => {
         // path="/:category/:subcategories/:data"
         // seriesIDs was passed in through state
-        const {state} = this.props.location
-        console.log(state)
+        const {state} = this.props.location;
+        // console.log(state)
         const apiKey = config.bls;
         // base url https://api.bls.gov/publicAPI/v2/timeseries/data/<seriesID>?registrationkey=${apiKey}
         const url = `https://api.bls.gov/publicAPI/v2/timeseries/data/${state}?registrationkey=${apiKey}`;
@@ -37,14 +38,22 @@ class ApiCall extends Component {
     
     render() {
         const {classes} = this.props;
+        const {category, subcategories, data} = this.props.match.params;
 
         return (
             <div>
                 <Container>
                     Does this work?
+                    {/* if data hasn't been added to state yet, this is null */}
                     {!this.state.data
-                        ? null
-                        : <Box className={classes.seriesID}>{this.state.data.Results.series[0].seriesID}</Box>
+                        ? <div></div>
+                        : <Box className={classes.seriesID}>Series ID: {this.state.data.Results.series[0].seriesID}</Box>
+                    }
+                </Container>
+                <Container>
+                    {!this.state.data
+                        ? <div></div>
+                        : <ChartDisplay fetchData={this.state.data} category={category} subcategories={subcategories} data={data}/>
                     }
                 </Container>
             </div>
