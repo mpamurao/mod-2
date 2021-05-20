@@ -24,7 +24,7 @@ function About() {
                     </Box>
                     <Box className={classes.bottom}>
                         To make it easier to retrieve data, this application is a simple search tool that
-                        generates charts. It is currently a Minimum Viable Product, and so
+                        generates charts. This is currently a Minimum Viable Product, and so
                         it can only generate one data set at a time. However, it is possible to generate 
                         multiple data sets to compare using the BLS API. If this app goes to full production,
                         it would be capable of generating charts and tables for single or multiple data set(s) 

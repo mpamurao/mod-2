@@ -6,7 +6,6 @@ const homeStyles = {
     homeTitle: {
         borderBottom:"3px solid",
         padding:"1.2rem 1rem 0.5rem 1rem",
-        // textAlign:"left",
         fontSize:"1.4rem",
         fontWeight:"900",
     },
@@ -18,6 +17,7 @@ const homeStyles = {
     error:{
         color:"red",
         padding:"0.8rem 1rem 1rem 1rem",
+        fontWeight:"900",
     },
     li:{
         marginLeft:"1rem",

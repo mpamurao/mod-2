@@ -90,7 +90,7 @@ function BLSAPI() {
                         </Box>
 
                         If the example series ID retrieves a bad response, then the endpoint is bad.
-                        Try finding another set of data in a different category to use instead.
+                        Try finding another set of data in a different category/subcategory to use instead.
                         <br></br>
                         <br></br>
                         <b>Happy Navigating!</b>

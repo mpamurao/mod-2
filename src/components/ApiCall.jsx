@@ -26,10 +26,16 @@ class ApiCall extends Component {
         try{
             // const response = await fetch(url);
             // const data = await response.json();
-            // console.log(data);
 
+            // if query was successful but series doesn't exist
+            if (data.message[0] && data.message[0].includes("Series does not exist")){
+                console.log(data.message[0]);
+                this.props.history.push({
+                    pathname:"/Home",
+                    state:data.message[0],
+                })
+            }
             this.setState({data});
-            
         }
         catch(err){
             console.log(err);

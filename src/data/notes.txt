@@ -24,6 +24,7 @@ https://download.bls.gov/pub/time.series/
 EMPLOYMENT&UNEMPLOYMENT - CONDITIONS
 #National Employment, Hours, and Earnings
 #State and Area Employment, Hours, and Earnings
+#Occupational Employment and Wage Statistics
 #Business Employment Dynamics
 #Local Area Unemployment Statistics
 #Job Openings and Labor Turnover Survey
@@ -40,3 +41,4 @@ PAY&BENEFITS
 
 OCCUPATIONAL REQUIREMENTS
 #Occupational Requirements Survey
+

@@ -24,7 +24,6 @@ const addChartData = (data) => {
     // console.log(chartDataX, chartDataY)
 }
 
-
 function ChartDisplay(props) {
     // declare variables for props
     const {fetchData, category, subcategories, data} = props;

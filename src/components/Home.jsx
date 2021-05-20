@@ -3,8 +3,15 @@ import {Container, InputLabel, MenuItem, FormHelperText,
         FormControl, Select, withStyles} from '@material-ui/core';
 import homeStyles from './styles/homeStyles';
 import NEmployHoursEarns from './NEmployHoursEarns';
+import SEmployHoursEarns from './SEmployHoursEarns';
 
 // API Walkthrough: https://hashrocket.com/blog/posts/extracting-programmer-employment-data-from-bls
+
+// list of main categories
+const categoriesArr = [
+    "National Employment, Hours, and Earnings", 
+    "State and Area Employment, Hours, and Earnings",
+]
 
 class Home extends Component {
     constructor() {
@@ -45,24 +52,34 @@ class Home extends Component {
                         onChange={this.handleChangeCategory} 
                         inputProps={{name:"generalCategory", id: "generalCategory"}}>
                             {/* MenuItem = option */}
-                            <MenuItem value="National Employment, Hours, and Earnings" 
-                            key="National Employment, Hours, and Earnings">
-                                National Employment, Hours, and Earnings
-                            </MenuItem>
+                            {categoriesArr.map(category => {
+                                return <MenuItem value={category} key={category}>
+                                            {category}
+                                        </MenuItem>
+                            })}
+                            
                         </Select>
                         <FormHelperText>Select a category</FormHelperText>
                     </FormControl>
                 </Container>
 
                 <Container>
-                    {/* if option is National Employment, show more options to select  from */}
-                    {!(this.state.category === "National Employment, Hours, and Earnings")
-                        ? <div></div>
-                        // show seasonal and supersector/industry options
-                        : <NEmployHoursEarns classes={classes} category={this.state.category}/>
-                
+                    {(this.state.category === "National Employment, Hours, and Earnings")
+                        // if option is National Employment, show more options to select  from 
+                        ? <NEmployHoursEarns classes={classes} category={this.state.category} />
+                        : (this.state.category === "State and Area Employment, Hours, and Earnings")
+                            ? <SEmployHoursEarns classes={classes} category={this.state.category} />
+                        : <div></div>
                     }
+                   
 
+                {/* if series doesn't exist, redirect to Home from ApiCall */}
+                {/* show error message until category field is re-entered */}
+                <Container className={classes.error}>
+                    {(this.props.location.state && !this.state.category)
+                        ? this.props.location.state 
+                        : null}
+                </Container>
                 </Container>
                   
             </div>
