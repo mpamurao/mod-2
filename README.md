@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+<h2>BLS API SEARCH</h2>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3>Website Content</h3>
 
-## Available Scripts
+<p>The BLS API Search application fetches data from the U.S. Bureau of Labor Statistics.
+Since the BLS website contains a lot of information in addition to survey data,
+it can be cumbersome to navigate through the site. As a user who may not normally
+visit the BLS site frequently, it can be overwhelming to find desired data.</p>
 
-In the project directory, you can run:
+<p>To make it easier to retrieve data, this application is a simple search tool that
+generates charts. This is currently a Minimum Viable Product, and so
+it can only generate one data set at a time. However, it is possible to generate 
+multiple data sets to compare using the BLS API. If this app goes to full production,
+it would have features added to generate charts and tables for single or multiple data set(s) 
+at a time. It would also contain more survey data available to choose from and the
+flexibility to choose which years to gather data from.</p>
 
-### `npm start`
+<h3>Progamming Technologies</h3>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<p>This site utilized the following languages and tools:</p>
+<ul>
+    <li>JavaScript</li>
+    <li>React</li>
+    <li>Material-UI</li>
+    <li>ChartJS</li>
+    <li>U.S. Bureau of Labor Statistics API</li>
+</ul>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<p>This application can be viewed on Heroku:&nbsp;
+<a href="https://mod2-statistics.herokuapp.com/" target="_blank">
+https://mod2-statistics.herokuapp.com/
+</a></p>
 
-### `npm test`
+<h3>Walkthrough<h3>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h4>Home</h4>
 
-### `npm run build`
+<p>The Home page contains a form. The initial field selection refers to the
+main categories of survey data. The current category selection focuses on the
+subsets under the Employment and Unemployment division.</p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<p>After selecting a category, additional fields appear. These fields include
+parameters required to complete in order to determine the series ID.
+By completing these fields and submitting, the series ID will generate and 
+correspond to the data set desired.</p>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<h4>Chart</h4>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<p>A query is sent to the BLS API to retrieve JSON data.
+From this data, a chart will be generated for each year provided in the response.
+Hovering over a data point will show its specific value.</p>
 
-### `npm run eject`
+<p>To make a new search request, click on the Home button in the top left of the nav bar.</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<h4>About</h4>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<p>The About page is what you're currently on.
+This page includes info about the application.</p>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<h4>BLS-API</h4>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+</p>The BLS-API page goes over the usage of the API. 
+It reviews how to create a URL request using an API key and 
+how to generate a series ID. It also contains links to the BLS website.</p>
 
-## Learn More
+<h4>Menu</h4>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<p>The Menu button currently does not have a functionality. In the future,
+it can provide a drop-down nav bar to the main categories.</p>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<h4>Footer</h4>
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p>The Footer contains the link to the BLS general website.</p>

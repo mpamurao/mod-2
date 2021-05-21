@@ -8,7 +8,7 @@ const headerStyles = makeStyles(() => ({
     appBar:{
         backgroundColor:"white",
         textAlign:"center",
-        color:'blue',
+        color:"blue",
     },
     heading:{
         fontWeight:"900",
