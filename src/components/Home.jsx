@@ -4,6 +4,7 @@ import {Container, InputLabel, MenuItem, FormHelperText,
 import homeStyles from './styles/homeStyles';
 import NEmployHoursEarns from './NEmployHoursEarns';
 import SEmployHoursEarns from './SEmployHoursEarns';
+import OccupationEmployWage from './OccupationEmployWage';
 
 // API Walkthrough: https://hashrocket.com/blog/posts/extracting-programmer-employment-data-from-bls
 
@@ -11,6 +12,7 @@ import SEmployHoursEarns from './SEmployHoursEarns';
 const categoriesArr = [
     "National Employment, Hours, and Earnings", 
     "State and Area Employment, Hours, and Earnings",
+    "Occupational Employment and Wage Statistics",
 ]
 
 class Home extends Component {
@@ -35,7 +37,7 @@ class Home extends Component {
         const {classes} = this.props;
 
         return (
-            <div>
+            <div className={classes.home}>
                 <Container className={classes.homeTitle}>
                     SEARCH STATISTICAL EMPLOYMENT AND LIVING DATA
                 </Container>
@@ -69,17 +71,19 @@ class Home extends Component {
                         ? <NEmployHoursEarns classes={classes} category={this.state.category} />
                         : (this.state.category === "State and Area Employment, Hours, and Earnings")
                             ? <SEmployHoursEarns classes={classes} category={this.state.category} />
+                        : (this.state.category === "Occupational Employment and Wage Statistics")
+                            ? <OccupationEmployWage classes={classes} category={this.state.category} />
                         : <div></div>
                     }
                    
 
-                {/* if series doesn't exist, redirect to Home from ApiCall */}
-                {/* show error message until category field is re-entered */}
-                <Container className={classes.error}>
-                    {(this.props.location.state && !this.state.category)
-                        ? this.props.location.state 
-                        : null}
-                </Container>
+                    {/* if series doesn't exist, redirect to Home from ApiCall */}
+                    {/* show error message until category field is re-entered */}
+                    <Container className={classes.error}>
+                        {(this.props.location.state && !this.state.category)
+                            ? this.props.location.state 
+                            : null}
+                    </Container>
                 </Container>
                   
             </div>
