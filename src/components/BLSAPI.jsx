@@ -74,22 +74,23 @@ function BLSAPI() {
                     </Card>
 
                     <Box className={classes.last}>
-                        There are some endpoints that are unsuccessful even if the series ID is
-                        correct. Before trying to generate a series ID for a data set,
-                        test the example series ID given in the Format Tutorial through the browser. 
-                        For example:
+                        When dynamically generating a series ID for a data set, you can
+                        test the URL with the series ID through the browser instead of the console.
+                        Try checking out the below URL in Chrome:
 
                         <Box>
                             <Card className={classes.imageContainer}>
                                 <i>https://api.bls.gov/publicAPI/v2/timeseries/data/CEU0800000003</i>
                             </Card>
-                            <p style={{margin:"2rem"}}>or like this:</p>
+                            <p style={{margin:"2rem"}}>or this:</p>
                             <Card className={classes.imageContainer}>
-                                <i>https://https://api.bls.gov/publicAPI/v2/timeseries/data/OEUN000000011100011000001</i>
+                                <i>https://api.bls.gov/publicAPI/v2/timeseries/data/OEUN000000011100011000001</i>
                             </Card>
                         </Box>
 
-                        If the example series ID retrieves a bad response, then the endpoint is bad.
+                        There are some endpoints that do not contain data even though the series ID format is
+                        correct and the endpoint exists. If the series ID receives a response message 
+                        saying the series does not exist, then the data is not available.
                         Try finding another set of data in a different category/subcategory to use instead.
                         <br></br>
                         <br></br>

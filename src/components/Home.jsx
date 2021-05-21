@@ -58,8 +58,7 @@ class Home extends Component {
                                 return <MenuItem value={category} key={category}>
                                             {category}
                                         </MenuItem>
-                            })}
-                            
+                            })}   
                         </Select>
                         <FormHelperText>Select a category</FormHelperText>
                     </FormControl>
@@ -75,14 +74,13 @@ class Home extends Component {
                             ? <OccupationEmployWage classes={classes} category={this.state.category} />
                         : <div></div>
                     }
-                   
 
                     {/* if series doesn't exist, redirect to Home from ApiCall */}
                     {/* show error message until category field is re-entered */}
                     <Container className={classes.error}>
                         {(this.props.location.state && !this.state.category)
                             ? this.props.location.state 
-                            : null}
+                            : <div></div>}
                     </Container>
                 </Container>
                   

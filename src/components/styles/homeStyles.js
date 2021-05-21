@@ -13,7 +13,7 @@ const homeStyles = {
         fontWeight:"900",
     },
     formControl:{
-        minWidth:"130px",
+        minWidth:"200px",
         justifyContent:"center",
         margin:"1rem 1rem 1rem 1rem",
     },

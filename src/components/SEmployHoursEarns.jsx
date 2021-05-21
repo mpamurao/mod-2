@@ -53,7 +53,7 @@ function SEmployHoursEarns(props) {
             Object.keys(sEmployHoursEarnsData.stateValue)
                 .find(key => sEmployHoursEarnsData.stateValue[key] === stateValue);
 
-        console.log(stateValueKey);
+        // console.log(stateValueKey);
 
         let pathString = String(`${category}/${stateValueKey}&${area}&${seasonal}&${industry}/${dataType}`);
         // regex to replace spaces and commas with a dash
@@ -95,7 +95,10 @@ function SEmployHoursEarns(props) {
                 <InputLabel htmlFor="stateValue">State</InputLabel>
                 <Select value={stateValue} 
                     inputProps={{name:"stateValue", id:"stateValue"}}
-                    onChange={(event) => {setStateValue(event.target.value)}} 
+                    onChange={(event) => {
+                        setStateValue(event.target.value);
+                        setArea("");
+                    }} 
                 >
                     {/* create array of stateValue keys and then map over it */}
                     {Object.keys(sEmployHoursEarnsData.stateValue).map(option => {

@@ -34,31 +34,24 @@ function OccupationEmployWage(props) {
     // after form is completed, determine seriesID for fetching data
     const createSeriesID = () => {
         // generate all the codes from data list
-        const seriesCode = "SM";
+        const seriesCode = "OE";
         const seasonalCode = occupationEmployWageData.seasonal[seasonal];
         const areaCode = occupationEmployWageData.area[areaType][area];
         const industryCode = occupationEmployWageData.industry[supersector][industry];
+        const occupationCode = occupationEmployWageData.occupation[occupationCategory][occupation];
         const dataTypeCode = occupationEmployWageData.dataType[dataType];
 
-        // console.log(seasonalCode, areaTypeCode, areaCode, dataTypeCode, industryCode);
+        // console.log(seasonalCode, areaTypeCode, areaCode, dataTypeCode, industryCode, occupationCode);
 
         // concatenate codes into a seriesID and add to array
         const seriesID = 
-            seriesCode+seasonalCode+areaType+areaCode+industryCode+dataTypeCode;
+            seriesCode+seasonalCode+areaType+areaCode+industryCode+occupationCode+dataTypeCode;
         // console.log(seriesID)
         
         let category = props.category;
         // console.log(category);
-        
-        // find key from the areaType value
-        // create array of object keys and then return key when .areaType[key] === areaType
-        const areaTypeKey = 
-            Object.keys(occupationEmployWageData.areaType)
-                .find(key => occupationEmployWageData.areaType[key] === areaType);
 
-        console.log(areaTypeKey);
-
-        let pathString = String(`${category}/${areaTypeKey}&${area}&${seasonal}&${industry}/${dataType}`);
+        let pathString = String(`${category}/${area}&${seasonal}&${industry}/${dataType}`);
         // regex to replace spaces and commas with a dash
         pathString = pathString.replace(/(,\s)/g, '-').replace(/\s+/g, '-');
         
@@ -98,7 +91,10 @@ function OccupationEmployWage(props) {
                 <InputLabel htmlFor="areaType">Area Type</InputLabel>
                 <Select value={areaType} 
                     inputProps={{name:"areaType", id:"areaType"}}
-                    onChange={(event) => {setareaType(event.target.value)}} 
+                    onChange={(event) => {
+                        setareaType(event.target.value);
+                        setArea("");
+                    }}
                 >
                     {/* create array of areaType keys and then map over it */}
                     {Object.keys(occupationEmployWageData.areaType).map(option => {
@@ -178,6 +174,53 @@ function OccupationEmployWage(props) {
                 </Select>
             </FormControl>
 
+            {/* occupationCategory options */}
+            <FormControl className={props.classes.formControl} 
+                error={(!complete && !occupationCategory)}
+            >
+                <InputLabel htmlFor="occupationCategory">Occupation Category</InputLabel>
+                <Select value={occupationCategory} 
+                    inputProps={{name:"occupationCategory", id:"occupationCategory"}}
+                    onChange={(event) => {
+                        setOccupationCategory(event.target.value);
+                        setOccupation("");
+                    }}
+                >
+                    {Object.keys(occupationEmployWageData.occupationCategory).map(option => {
+                        // console.log(nEmployHoursEarnsData.occupationCategory[option])
+                        // set value as the value to the occupationCategory key
+                        return  <MenuItem value={occupationEmployWageData.occupationCategory[option]} 
+                                    key={occupationEmployWageData.occupationCategory[option]}
+                                >
+                                    {option}
+                                </MenuItem>
+                    })}
+                </Select>
+            </FormControl>
+
+            {/* once occupationCategory is populated, enable occupation label */}
+            <FormControl className={props.classes.formControl}
+                disabled={!occupationCategory} error={(!complete && !occupation)}
+            >
+                <InputLabel htmlFor="occupation">Occupation Title</InputLabel>
+                <Select value={occupation} 
+                    inputProps={{name:"occupation", id:"occupation"}}
+                    onChange={(event) => {setOccupation(event.target.value)}}
+                >
+                    {/* {console.log(occupationCategory)} */}
+                    {/* don't list anything under occupation until occupationCategory is completed */}
+                    {!occupationCategory 
+                        ? null 
+                        : Object.keys(occupationEmployWageData.occupation[occupationCategory])
+                            .map(occupation => {
+                                return  <MenuItem value={occupation} key={occupation}>
+                                            {occupation}
+                                        </MenuItem> 
+                            })
+                    }                   
+                </Select>
+            </FormControl>
+
             {/* dataType options */}
             <FormControl className={props.classes.formControl}
                 error={(!complete && !dataType)}
@@ -205,9 +248,6 @@ function OccupationEmployWage(props) {
                 Submit
             </Button>
             
-            (!seasonal|| !areaType || !area || !supersector 
-            || !industry || !occupationCategory 
-            || !occupation || !dataType)
             {/* if there's an incomplete form */}
             {(!complete && (!seasonal || !areaType || !area || !supersector || !industry || !dataType))
                 ? <Container className={props.classes.error}>

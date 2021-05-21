@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import config from '../config';
-import data from '../data/dummydata';
+// import data from '../data/dummydata';
 import {Container, Box, withStyles} from '@material-ui/core';
 import apiCallStyles from './styles/apiCallStyles';
 import ChartDisplay from './ChartDisplay';
@@ -24,8 +24,8 @@ class ApiCall extends Component {
         const url = `https://api.bls.gov/publicAPI/v2/timeseries/data/${state}?registrationkey=${apiKey}`;
 
         try{
-            // const response = await fetch(url);
-            // const data = await response.json();
+            const response = await fetch(url);
+            const data = await response.json();
 
             // if query was successful but series doesn't exist
             if (data.message[0] && data.message[0].includes("Series does not exist")){
