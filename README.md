@@ -1,4 +1,6 @@
-<h3>Website Content<h3>
+<h2>BLS API SEARCH</h2>
+
+<h3>Website Content</h3>
 
 <p>The BLS API Search application fetches data from the U.S. Bureau of Labor Statistics.
 Since the BLS website contains a lot of information in addition to survey data,
@@ -25,9 +27,9 @@ flexibility to choose which years to gather data from.</p>
 </ul>
 
 <p>This application can be viewed on Heroku:&nbsp;
-<Link href="https://mod2-statistics.herokuapp.com/" target="_blank">
+<a href="https://mod2-statistics.herokuapp.com/" target="_blank">
 https://mod2-statistics.herokuapp.com/
-</Link></p>
+</a></p>
 
 <h3>Walkthrough<h3>
 
@@ -50,7 +52,7 @@ Hovering over a data point will show its specific value.</p>
 
 <p>To make a new search request, click on the Home button in the top left of the nav bar.</p>
 
-<h4>About</4>
+<h4>About</h4>
 
 <p>The About page is what you're currently on.
 This page includes info about the application.</p>
