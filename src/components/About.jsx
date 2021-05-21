@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Box, ListItem} from '@material-ui/core';
+import {Container, Box, ListItem, Link} from '@material-ui/core';
 import infoStyles from './styles/infoStyles';
 
 const technologies = ["JavaScript", "React", "Material-UI", "ChartJS", "U.S. Bureau of Labor Statistics API"];
@@ -27,7 +27,7 @@ function About() {
                         generates charts. This is currently a Minimum Viable Product, and so
                         it can only generate one data set at a time. However, it is possible to generate 
                         multiple data sets to compare using the BLS API. If this app goes to full production,
-                        it would be capable of generating charts and tables for single or multiple data set(s) 
+                        it would have features added to generate charts and tables for single or multiple data set(s) 
                         at a time. It would also contain more survey data available to choose from and the
                         flexibility to choose which years to gather data from.
                     </Box>
@@ -43,6 +43,11 @@ function About() {
                                 return <ListItem key={item} style={{listDecoration:"square"}}>{item}</ListItem>
                             })}
                         </ul>
+
+                        This application can be viewed on Heroku:&nbsp;
+                        <Link href="https://mod2-statistics.herokuapp.com/" target="_blank">
+                            https://mod2-statistics.herokuapp.com/
+                        </Link>
                     </Box>
                 </Container>
                 <Container>
@@ -57,7 +62,7 @@ function About() {
                         <Box className={classes.bottom}>
                             The Home page contains a form. The initial field selection refers to the
                             main categories of survey data. The current category selection focuses on the
-                            subsets under Employment and Unemployment.
+                            subsets under the Employment and Unemployment division.
                         </Box>
                         <Box className={classes.bottom}>
                             After selecting a category, additional fields appear. These fields include

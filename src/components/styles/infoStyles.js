@@ -25,6 +25,7 @@ const infoStyles = makeStyles(() => ({
         maxWidth:800,
         margin:"2rem",
         padding:"0.5rem",
+        wordWrap: "break-word",
     },
     image: {
         padding:"1rem",

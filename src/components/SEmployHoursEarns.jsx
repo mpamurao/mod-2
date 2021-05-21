@@ -16,7 +16,7 @@ function SEmployHoursEarns(props) {
     const history = useHistory();
 
     // submit form and concatenate seriesID
-    const handleClick = (event) => {
+    const handleClick = () => {
         // if the form is incomplete, return
         if (!seasonal|| !stateValue || !area || !supersector 
             || !industry || !dataType){
@@ -200,7 +200,7 @@ function SEmployHoursEarns(props) {
             </FormHelperText>
             
             <Button variant="outlined" color="primary" style={{marginLeft:"1rem"}} 
-                onClick={event => {handleClick(event.target.value)}}
+                onClick={event => {handleClick()}}
             >
                 Submit
             </Button>

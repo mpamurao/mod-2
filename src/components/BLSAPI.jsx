@@ -22,7 +22,7 @@ function BLSAPI() {
                             BLS website
                         </Link>. 
                         If using the API, please remember to read the&nbsp;
-                        <Link href="https://www.bls.gov/developers/home.htm" target="_blank"> 
+                        <Link href="https://www.bls.gov/developers/termsOfService.htm" target="_blank"> 
                             Terms of Services
                         </Link>.
                     </Box>

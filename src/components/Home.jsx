@@ -39,7 +39,7 @@ class Home extends Component {
         return (
             <div className={classes.home}>
                 <Container className={classes.homeTitle}>
-                    SEARCH STATISTICAL EMPLOYMENT AND LIVING DATA
+                    SEARCH STATISTICAL EMPLOYMENT DATA
                 </Container>
 
                 {/* container to wrap form options */}

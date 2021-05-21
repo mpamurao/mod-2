@@ -24,6 +24,7 @@ const addChartData = (data) => {
     // console.log(chartDataX, chartDataY)
 }
 
+
 function ChartDisplay(props) {
     // declare variables for props
     const {fetchData, category, subcategories, data} = props;
@@ -56,7 +57,8 @@ function ChartDisplay(props) {
                                 ],
                                 // borderWidth = graph's line thickness
                                 borderWidth: 3,
-                                pointRadius: 5,  
+                                // make pointRadius show data marker every 4th data point
+                                pointRadius: [5,0,0,0],  
                             },
                             // to create another data set, just add another object here
                         ],

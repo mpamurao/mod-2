@@ -21,7 +21,7 @@ class ApiCall extends Component {
         // console.log(state)
         const apiKey = config.bls;
         // base url https://api.bls.gov/publicAPI/v2/timeseries/data/<seriesID>?registrationkey=${apiKey}
-        const url = `https://api.bls.gov/publicAPI/v2/timeseries/data/${state}?registrationkey=${apiKey}`;
+        const url = `https://api.bls.gov/publicAPI/v2/timeseries/data/${state}?registrationkey=${apiKey}&startyear=2010&endyear=2021`;
 
         try{
             const response = await fetch(url);
@@ -52,7 +52,9 @@ class ApiCall extends Component {
                     {/* if data hasn't been added to state yet, this is null */}
                     {!this.state.data
                         ? <div></div>
-                        : <Box className={classes.seriesID}>Series ID: {this.state.data.Results.series[0].seriesID}</Box>
+                        : <Box className={classes.seriesID}>
+                            Series ID: {this.state.data.Results.series[0].seriesID}
+                        </Box>
                     }   
                     <Box className={classes.chartContainer}>
                         {!this.state.data
@@ -66,9 +68,9 @@ class ApiCall extends Component {
         );
     }
 
-    componentWillUnmount = () => {
-        this.setState({data:""});
-    }
+    // componentWillUnmount = () => {
+    //     this.setState({data:""});
+    // }
 }
 
 export default withStyles(apiCallStyles)(ApiCall);
